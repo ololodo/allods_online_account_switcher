@@ -26,23 +26,23 @@ rem
 rem	
 rem	version 20170619
 rem	____________________History:
-rem	Вариант от 20170307
-rem	20170307 К списку проверяемых процессов добавлены не только лаунчер и сама игра, но еще и обновляльщик и встроенный стукач-крешер.
+rem	Р’Р°СЂРёР°РЅС‚ РѕС‚ 20170307
+rem	20170307 Рљ СЃРїРёСЃРєСѓ РїСЂРѕРІРµСЂСЏРµРјС‹С… РїСЂРѕС†РµСЃСЃРѕРІ РґРѕР±Р°РІР»РµРЅС‹ РЅРµ С‚РѕР»СЊРєРѕ Р»Р°СѓРЅС‡РµСЂ Рё СЃР°РјР° РёРіСЂР°, РЅРѕ РµС‰Рµ Рё РѕР±РЅРѕРІР»СЏР»СЊС‰РёРє Рё РІСЃС‚СЂРѕРµРЅРЅС‹Р№ СЃС‚СѓРєР°С‡-РєСЂРµС€РµСЂ.
 rem	20170307 now checked not only launcher: addit check game's main process, updater and built-in telemetry.
-rem	201706** улучшения. Имя акка передается теперь через параметры командной строки. Один батник для нескольких акков.
+rem	201706** СѓР»СѓС‡С€РµРЅРёСЏ. РРјСЏ Р°РєРєР° РїРµСЂРµРґР°РµС‚СЃСЏ С‚РµРїРµСЂСЊ С‡РµСЂРµР· РїР°СЂР°РјРµС‚СЂС‹ РєРѕРјР°РЅРґРЅРѕР№ СЃС‚СЂРѕРєРё. РћРґРёРЅ Р±Р°С‚РЅРёРє РґР»СЏ РЅРµСЃРєРѕР»СЊРєРёС… Р°РєРєРѕРІ.
 rem	201706** improuvments. Acc's name passed with command line param.
-rem	20170619 еще улучшения.
+rem	20170619 РµС‰Рµ СѓР»СѓС‡С€РµРЅРёСЏ.
 rem	20170619 Improuvments.
 setlocal
 set debug=1
 set debug=0
-rem 	debug=1 надо выдавать диагностику/write a debug messages
-rem 	debug=0 не надо выдавать диагностику/be quiet, not write debug messages
-rem =========Дальше нет параметров, которые надо изменять пользователю=============
-rem даже более того, тут вообще нет ничего, что должен изменять пользователь.
-rem =====имя акка передается параметром в командной строке======================
+rem 	debug=1 РЅР°РґРѕ РІС‹РґР°РІР°С‚СЊ РґРёР°РіРЅРѕСЃС‚РёРєСѓ/write a debug messages
+rem 	debug=0 РЅРµ РЅР°РґРѕ РІС‹РґР°РІР°С‚СЊ РґРёР°РіРЅРѕСЃС‚РёРєСѓ/be quiet, not write debug messages
+rem =========Р”Р°Р»СЊС€Рµ РЅРµС‚ РїР°СЂР°РјРµС‚СЂРѕРІ, РєРѕС‚РѕСЂС‹Рµ РЅР°РґРѕ РёР·РјРµРЅСЏС‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ=============
+rem РґР°Р¶Рµ Р±РѕР»РµРµ С‚РѕРіРѕ, С‚СѓС‚ РІРѕРѕР±С‰Рµ РЅРµС‚ РЅРёС‡РµРіРѕ, С‡С‚Рѕ РґРѕР»Р¶РµРЅ РёР·РјРµРЅСЏС‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ.
+rem =====РёРјСЏ Р°РєРєР° РїРµСЂРµРґР°РµС‚СЃСЏ РїР°СЂР°РјРµС‚СЂРѕРј РІ РєРѕРјР°РЅРґРЅРѕР№ СЃС‚СЂРѕРєРµ======================
 
-rem	//TODO придумать что-то для предотвращения повторного инстанса.
+rem	//TODO РїСЂРёРґСѓРјР°С‚СЊ С‡С‚Рѕ-С‚Рѕ РґР»СЏ РїСЂРµРґРѕС‚РІСЂР°С‰РµРЅРёСЏ РїРѕРІС‚РѕСЂРЅРѕРіРѕ РёРЅСЃС‚Р°РЅСЃР°.
 
 echo Account switcher for MMORPG Allods Online.
 echo This project is licensed under the terms of the MIT license.
@@ -50,7 +50,7 @@ echo https://github.com/ololodo for more info.
 echo http://ololodo.blogspot.com for help and howtos.
 echo ------------------------------------------------------------
 
-rem	Проверяем наличие необходимых программ
+rem	РџСЂРѕРІРµСЂСЏРµРј РЅР°Р»РёС‡РёРµ РЅРµРѕР±С…РѕРґРёРјС‹С… РїСЂРѕРіСЂР°РјРј
 
 set ech=data\Mods\_Addons_commonparts\echo_bike.exe
 if not exist %ech% (
@@ -86,7 +86,7 @@ if not exist %z7% (
 )
 
 
-rem	Жесткая жесть
+rem	Р–РµСЃС‚РєР°СЏ Р¶РµСЃС‚СЊ
 >output.tmp %datexe% +"%%Y%%m%%d_%%Hh%%Mm%%Ss"
 <output.tmp (
   set /p timestamp=
@@ -120,22 +120,22 @@ if exist %rollbackarchive% (
   rem	need to roll back first
   %ech% Ubnormal previous batch termination. Rolling initial state back: 
   echo Ubnormal previous batch termination. Rolling initial state back. >>%logfile%
-  rem	запаковать на всякий случай текущее содержимое каталогов и файла.
-  rem	Скрипту оно не нужно, но вдруг понадобится самому пользователю.
+  rem	Р·Р°РїР°РєРѕРІР°С‚СЊ РЅР° РІСЃСЏРєРёР№ СЃР»СѓС‡Р°Р№ С‚РµРєСѓС‰РµРµ СЃРѕРґРµСЂР¶РёРјРѕРµ РєР°С‚Р°Р»РѕРіРѕРІ Рё С„Р°Р№Р»Р°.
+  rem	РЎРєСЂРёРїС‚Сѓ РѕРЅРѕ РЅРµ РЅСѓР¶РЅРѕ, РЅРѕ РІРґСЂСѓРі РїРѕРЅР°РґРѕР±РёС‚СЃСЏ СЃР°РјРѕРјСѓ РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ.
   call :subr_pack_content_and_delete %timestamp%_after_hanging_you_may_delete_it.7z %logfile%
-  rem	упаковывает содержимое каталогов с аддонами и файл
-  rem	%z7% должен быть уже определен.
+  rem	СѓРїР°РєРѕРІС‹РІР°РµС‚ СЃРѕРґРµСЂР¶РёРјРѕРµ РєР°С‚Р°Р»РѕРіРѕРІ СЃ Р°РґРґРѕРЅР°РјРё Рё С„Р°Р№Р»
+  rem	%z7% РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СѓР¶Рµ РѕРїСЂРµРґРµР»РµРЅ.
   %ech% +1
   echo Rollback: pack current state is OK. >>%logfile%
 
-  rem	потом распаковать из rollback то, что было.
+  rem	РїРѕС‚РѕРј СЂР°СЃРїР°РєРѕРІР°С‚СЊ РёР· rollback С‚Рѕ, С‡С‚Рѕ Р±С‹Р»Рѕ.
   call :subr_extract_content %rollbackarchive% %logfile%
-  rem	распаковывает архив.
-  rem	%z7% должен быть уже определен.
+  rem	СЂР°СЃРїР°РєРѕРІС‹РІР°РµС‚ Р°СЂС…РёРІ.
+  rem	%z7% РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СѓР¶Рµ РѕРїСЂРµРґРµР»РµРЅ.
   %ech% +2 
   echo Rollback: unpack from rollback is OK. >>%logfile%
 
-  rem	удаляем rollback архив.
+  rem	СѓРґР°Р»СЏРµРј rollback Р°СЂС…РёРІ.
   del %rollbackarchive%
 
   echo +3. 
@@ -144,17 +144,17 @@ if exist %rollbackarchive% (
 if %debug%==1 echo ===control point 0===. 
 echo ===control point 0===. >>%logfile%
 if exist %rollbackarchive% (
-  rem	O_O откат все еще существует, так быть не должно, что-то где-то косяк!
+  rem	O_O РѕС‚РєР°С‚ РІСЃРµ РµС‰Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚, С‚Р°Рє Р±С‹С‚СЊ РЅРµ РґРѕР»Р¶РЅРѕ, С‡С‚Рѕ-С‚Рѕ РіРґРµ-С‚Рѕ РєРѕСЃСЏРє!
   rem	assert
   echo ASSERTION TRAPPING 1!!! 
   echo ASSERTION TRAPPING 1!!! >>%logfile%
   pause
   exit
-  rem	совсем выход, окончательно.
+  rem	СЃРѕРІСЃРµРј РІС‹С…РѕРґ, РѕРєРѕРЅС‡Р°С‚РµР»СЊРЅРѕ.
 )
 
 
-rem	тут у нас все точно откачено, если было некорректное завершение работы.
+rem	С‚СѓС‚ Сѓ РЅР°СЃ РІСЃРµ С‚РѕС‡РЅРѕ РѕС‚РєР°С‡РµРЅРѕ, РµСЃР»Рё Р±С‹Р»Рѕ РЅРµРєРѕСЂСЂРµРєС‚РЅРѕРµ Р·Р°РІРµСЂС€РµРЅРёРµ СЂР°Р±РѕС‚С‹.
 if %debug%==1 echo ===control point 1===. 
 echo ===control point 1===. >>%logfile%
 
@@ -171,7 +171,7 @@ if Allods%1Online == AllodsOnline (
 set username=%1
 rem	echo %username%
 rem	exit /b
-rem	это login, чьи аддоны и user.cfg надо использовать.
+rem	СЌС‚Рѕ login, С‡СЊРё Р°РґРґРѕРЅС‹ Рё user.cfg РЅР°РґРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ.
 rem	if %debug%==1 pause
 if %debug%==1 echo Debug: username is [%username%].
 title %1 - Allods Online account switcher
@@ -190,8 +190,8 @@ if %debug%==1 echo ===control point 2===.
 echo ===control point 2===. >>%logfile%
 
 rem	:subr_test_archive
-rem	Проверяет содержимое архива на правильность внутренностей.
-rem	%z7% должен быть уже определен.
+rem	РџСЂРѕРІРµСЂСЏРµС‚ СЃРѕРґРµСЂР¶РёРјРѕРµ Р°СЂС…РёРІР° РЅР° РїСЂР°РІРёР»СЊРЅРѕСЃС‚СЊ РІРЅСѓС‚СЂРµРЅРЅРѕСЃС‚РµР№.
+rem	%z7% РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СѓР¶Рµ РѕРїСЂРµРґРµР»РµРЅ.
 echo.|set/p yvar="Testing prepared archive for user %1: "
 rem	%ech% Testing prepared archive for user %1: 
 echo Testing prepared archive for user %1 >>%logfile%
@@ -217,37 +217,37 @@ if not exist %initialbackupfilename% (
   echo.|set/p yvar="Initial backup not found, creating it now: "
   echo Initial backup not found, so we will create it just now >>%logfile%
   rem	:subr_pack_content
-  rem	упаковывает содержимое каталогов с аддонами и файл
-  rem	%z7% должен быть уже определен.
-  rem	запаковываем имеющееся состояние. Для пользователя
+  rem	СѓРїР°РєРѕРІС‹РІР°РµС‚ СЃРѕРґРµСЂР¶РёРјРѕРµ РєР°С‚Р°Р»РѕРіРѕРІ СЃ Р°РґРґРѕРЅР°РјРё Рё С„Р°Р№Р»
+  rem	%z7% РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СѓР¶Рµ РѕРїСЂРµРґРµР»РµРЅ.
+  rem	Р·Р°РїР°РєРѕРІС‹РІР°РµРј РёРјРµСЋС‰РµРµСЃСЏ СЃРѕСЃС‚РѕСЏРЅРёРµ. Р”Р»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
   call :subr_pack_content %initialbackupfilename% %logfile%
   echo OK. %initialbackupfilename%
   echo Archiving of initial backup is OK. %initialbackupfilename% >>%logfile%
 ) 
 echo ===control point 4===. >>%logfile%
 if exist %initialbackupfilename% (
-  rem	существует (только что или уже как пару лет назад, неважно). 
-  rem	Проверяем его на правильность.
+  rem	СЃСѓС‰РµСЃС‚РІСѓРµС‚ (С‚РѕР»СЊРєРѕ С‡С‚Рѕ РёР»Рё СѓР¶Рµ РєР°Рє РїР°СЂСѓ Р»РµС‚ РЅР°Р·Р°Рґ, РЅРµРІР°Р¶РЅРѕ). 
+  rem	РџСЂРѕРІРµСЂСЏРµРј РµРіРѕ РЅР° РїСЂР°РІРёР»СЊРЅРѕСЃС‚СЊ.
   rem	:subr_test_archive
-  rem	Проверяет содержимое архива на правильность внутренностей.
-  rem	%z7% должен быть уже определен.
+  rem	РџСЂРѕРІРµСЂСЏРµС‚ СЃРѕРґРµСЂР¶РёРјРѕРµ Р°СЂС…РёРІР° РЅР° РїСЂР°РІРёР»СЊРЅРѕСЃС‚СЊ РІРЅСѓС‚СЂРµРЅРЅРѕСЃС‚РµР№.
+  rem	%z7% РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СѓР¶Рµ РѕРїСЂРµРґРµР»РµРЅ.
   call :subr_test_archive %initialbackupfilename% %logfile%
-  rem	Если все штатно, то писать пользователю об этом необязательно.
+  rem	Р•СЃР»Рё РІСЃРµ С€С‚Р°С‚РЅРѕ, С‚Рѕ РїРёСЃР°С‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ РѕР± СЌС‚РѕРј РЅРµРѕР±СЏР·Р°С‚РµР»СЊРЅРѕ.
 )
 if %debug%==1 echo ===control point 5===
 echo ===control point 5===. >>%logfile%
 
 
-rem	- запомнить текущее состояние аддонов и usercfg
+rem	- Р·Р°РїРѕРјРЅРёС‚СЊ С‚РµРєСѓС‰РµРµ СЃРѕСЃС‚РѕСЏРЅРёРµ Р°РґРґРѕРЅРѕРІ Рё usercfg
 echo.|set/p yvar="Saving initial configuration (addons + user.cfg) to [%rollbackarchive%]: "
 rem	echo Start save current initial configuration ^(addons and user.cfg^) to %firstpack%
 echo Saving current initial configuration ^(addons and user.cfg^) to %rollbackarchive% >>%logfile%
 
 rem	:subr_pack_content_and_delete
-rem	упаковывает содержимое каталогов с аддонами и файл, после этого удаляет исходные файлы.
-rem	%z7% должен быть уже определен.
+rem	СѓРїР°РєРѕРІС‹РІР°РµС‚ СЃРѕРґРµСЂР¶РёРјРѕРµ РєР°С‚Р°Р»РѕРіРѕРІ СЃ Р°РґРґРѕРЅР°РјРё Рё С„Р°Р№Р», РїРѕСЃР»Рµ СЌС‚РѕРіРѕ СѓРґР°Р»СЏРµС‚ РёСЃС…РѕРґРЅС‹Рµ С„Р°Р№Р»С‹.
+rem	%z7% РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СѓР¶Рµ РѕРїСЂРµРґРµР»РµРЅ.
 call :subr_pack_content_and_delete %rollbackarchive% %logfile%
-rem	запаковываем имеющееся состояние.
+rem	Р·Р°РїР°РєРѕРІС‹РІР°РµРј РёРјРµСЋС‰РµРµСЃСЏ СЃРѕСЃС‚РѕСЏРЅРёРµ.
 
 echo OK.
 echo Archiving is OK. >>%logfile%
@@ -255,13 +255,13 @@ rem pause
 echo ===control point 6===. >>%logfile%
 
 
-rem	- из нужной копии нужного пользователя записать свой набор аддонов и usercfg
+rem	- РёР· РЅСѓР¶РЅРѕР№ РєРѕРїРёРё РЅСѓР¶РЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ Р·Р°РїРёСЃР°С‚СЊ СЃРІРѕР№ РЅР°Р±РѕСЂ Р°РґРґРѕРЅРѕРІ Рё usercfg
 echo.|set/p yvar="Restoring user's config for user (%username%) from a file [%prepfile%]: "
 rem	echo Starting restoring user's config for user ^(%username%^) from a file prep_%username%.7z
 echo Restoring user's config for user ^(%username%^) from a file [%prepfile%]. >>%logfile%
 rem	:subr_extract_content
-rem	распаковывает архив.
-rem	%z7% должен быть уже определен.
+rem	СЂР°СЃРїР°РєРѕРІС‹РІР°РµС‚ Р°СЂС…РёРІ.
+rem	%z7% РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СѓР¶Рµ РѕРїСЂРµРґРµР»РµРЅ.
 call :subr_extract_content %prepfile% %logfile%
 echo OK.
 echo A restoration user's config is OK. >>%logfile%
@@ -293,17 +293,17 @@ echo ===control point 8===. >>%logfile%
 
 
 
-rem	проверяем, запущен ли процесс aogame.exe?
-rem	Он может и быть, если из лаунчера запустили игру нормальным образом,
-rem	а может и не быть, если лаунчер пошел обновляться
-rem	или его попросту закрыли, ничего не запуская.
-rem	или игра подскользнулась и стучка пошла стучать в разработочную.
-rem	Поэтому проверяю все процессы игры:
-rem	обновляльщик игры (визуально выглядит типа как лаунчер)
-rem	сам launcher, если игра пошла обновляться, после обновляльщика
-rem	сам процесс игры (это не launcher)
-rem	стучка и скринщоткя программа из стандартной поставки игры.
-rem	удалить нельзя, т.к при восстановлении восстает обратно.
+rem	РїСЂРѕРІРµСЂСЏРµРј, Р·Р°РїСѓС‰РµРЅ Р»Рё РїСЂРѕС†РµСЃСЃ aogame.exe?
+rem	РћРЅ РјРѕР¶РµС‚ Рё Р±С‹С‚СЊ, РµСЃР»Рё РёР· Р»Р°СѓРЅС‡РµСЂР° Р·Р°РїСѓСЃС‚РёР»Рё РёРіСЂСѓ РЅРѕСЂРјР°Р»СЊРЅС‹Рј РѕР±СЂР°Р·РѕРј,
+rem	Р° РјРѕР¶РµС‚ Рё РЅРµ Р±С‹С‚СЊ, РµСЃР»Рё Р»Р°СѓРЅС‡РµСЂ РїРѕС€РµР» РѕР±РЅРѕРІР»СЏС‚СЊСЃСЏ
+rem	РёР»Рё РµРіРѕ РїРѕРїСЂРѕСЃС‚Сѓ Р·Р°РєСЂС‹Р»Рё, РЅРёС‡РµРіРѕ РЅРµ Р·Р°РїСѓСЃРєР°СЏ.
+rem	РёР»Рё РёРіСЂР° РїРѕРґСЃРєРѕР»СЊР·РЅСѓР»Р°СЃСЊ Рё СЃС‚СѓС‡РєР° РїРѕС€Р»Р° СЃС‚СѓС‡Р°С‚СЊ РІ СЂР°Р·СЂР°Р±РѕС‚РѕС‡РЅСѓСЋ.
+rem	РџРѕСЌС‚РѕРјСѓ РїСЂРѕРІРµСЂСЏСЋ РІСЃРµ РїСЂРѕС†РµСЃСЃС‹ РёРіСЂС‹:
+rem	РѕР±РЅРѕРІР»СЏР»СЊС‰РёРє РёРіСЂС‹ (РІРёР·СѓР°Р»СЊРЅРѕ РІС‹РіР»СЏРґРёС‚ С‚РёРїР° РєР°Рє Р»Р°СѓРЅС‡РµСЂ)
+rem	СЃР°Рј launcher, РµСЃР»Рё РёРіСЂР° РїРѕС€Р»Р° РѕР±РЅРѕРІР»СЏС‚СЊСЃСЏ, РїРѕСЃР»Рµ РѕР±РЅРѕРІР»СЏР»СЊС‰РёРєР°
+rem	СЃР°Рј РїСЂРѕС†РµСЃСЃ РёРіСЂС‹ (СЌС‚Рѕ РЅРµ launcher)
+rem	СЃС‚СѓС‡РєР° Рё СЃРєСЂРёРЅС‰РѕС‚РєСЏ РїСЂРѕРіСЂР°РјРјР° РёР· СЃС‚Р°РЅРґР°СЂС‚РЅРѕР№ РїРѕСЃС‚Р°РІРєРё РёРіСЂС‹.
+rem	СѓРґР°Р»РёС‚СЊ РЅРµР»СЊР·СЏ, С‚.Рє РїСЂРё РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРё РІРѕСЃСЃС‚Р°РµС‚ РѕР±СЂР°С‚РЅРѕ.
 
 echo.|set/p yvar="Checking is AOgame process still present in memory: "
 rem	echo Checking presence of AOgame process
@@ -332,7 +332,7 @@ echo ===control point 8a ===. >>%logfile%
 echo.|set/p yvar="Waiting terminating all game's components: "
 :point2j
 set flagw2=1
-rem	---смотрим наличие процесса самой игры
+rem	---СЃРјРѕС‚СЂРёРј РЅР°Р»РёС‡РёРµ РїСЂРѕС†РµСЃСЃР° СЃР°РјРѕР№ РёРіСЂС‹
 	set cesstocheck=AOgame.exe
 QPROCESS * | find /i "%cesstocheck%" >nul 2>&1 && (
     rem	echo process %cesstocheck% still running
@@ -345,7 +345,7 @@ QPROCESS * | find /i "%cesstocheck%" >nul 2>&1 && (
      rem	%sleep% 5
 )
 
-rem	---смотрим наличие launcher игры
+rem	---СЃРјРѕС‚СЂРёРј РЅР°Р»РёС‡РёРµ launcher РёРіСЂС‹
 	set cesstocheck=Launcher.exe
 QPROCESS * | find /i "%cesstocheck%" >nul 2>&1 && (
     rem	echo process %cesstocheck% still running
@@ -358,7 +358,7 @@ QPROCESS * | find /i "%cesstocheck%" >nul 2>&1 && (
      rem	%sleep% 5
 )
 
-rem	---смотрим наличие обновляльщика игры (визуально выглядит как лаунчер)
+rem	---СЃРјРѕС‚СЂРёРј РЅР°Р»РёС‡РёРµ РѕР±РЅРѕРІР»СЏР»СЊС‰РёРєР° РёРіСЂС‹ (РІРёР·СѓР°Р»СЊРЅРѕ РІС‹РіР»СЏРґРёС‚ РєР°Рє Р»Р°СѓРЅС‡РµСЂ)
 	set cesstocheck=SyncVersion.exe
 QPROCESS * | find /i "%cesstocheck%" >nul 2>&1 && (
     rem	echo process %cesstocheck% still running
@@ -371,7 +371,7 @@ QPROCESS * | find /i "%cesstocheck%" >nul 2>&1 && (
      rem	%sleep% 5
 )
 
-rem	---смотрим наличие стукача-крашера игры
+rem	---СЃРјРѕС‚СЂРёРј РЅР°Р»РёС‡РёРµ СЃС‚СѓРєР°С‡Р°-РєСЂР°С€РµСЂР° РёРіСЂС‹
 	set cesstocheck=CrashSender1402.exe
 QPROCESS * | find /i "%cesstocheck%" >nul 2>&1 && (
     rem	echo process %cesstocheck% still running
@@ -395,39 +395,39 @@ echo There are no more games' processes found. >>%logfile%
 echo.|set/p yvar="Pause 15 secs... "
 echo Pause 15 secs for continueing. >>%logfile%
 %sleep% 15
-rem	чтобы точно все файлы отпустились игрой.
-rem	если без паузы, то иногда некоторые файлы все еще не отпущены почему-то.
+rem	С‡С‚РѕР±С‹ С‚РѕС‡РЅРѕ РІСЃРµ С„Р°Р№Р»С‹ РѕС‚РїСѓСЃС‚РёР»РёСЃСЊ РёРіСЂРѕР№.
+rem	РµСЃР»Рё Р±РµР· РїР°СѓР·С‹, С‚Рѕ РёРЅРѕРіРґР° РЅРµРєРѕС‚РѕСЂС‹Рµ С„Р°Р№Р»С‹ РІСЃРµ РµС‰Рµ РЅРµ РѕС‚РїСѓС‰РµРЅС‹ РїРѕС‡РµРјСѓ-С‚Рѕ.
 echo OK
 echo Pause 15 secs is ended. >>%logfile%
 
 rem	==============cut end=======================
 
-rem	запоминаем изменения в наборе этого пользователя
+rem	Р·Р°РїРѕРјРёРЅР°РµРј РёР·РјРµРЅРµРЅРёСЏ РІ РЅР°Р±РѕСЂРµ СЌС‚РѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
 echo.|set/p yvar="Saving changes in %1's profile [%prepfile%]: "
 rem	echo Saving changes in user's profile prep_%username%.7z
 echo Saving changes in user's [%1] profile [%prepfile%]. >>%logfile%
 rem	:subr_pack_content_and_delete
-rem	упаковывает содержимое каталогов с аддонами и файл, после этого удаляет исходные файлы.
-rem	%z7% должен быть уже определен.
+rem	СѓРїР°РєРѕРІС‹РІР°РµС‚ СЃРѕРґРµСЂР¶РёРјРѕРµ РєР°С‚Р°Р»РѕРіРѕРІ СЃ Р°РґРґРѕРЅР°РјРё Рё С„Р°Р№Р», РїРѕСЃР»Рµ СЌС‚РѕРіРѕ СѓРґР°Р»СЏРµС‚ РёСЃС…РѕРґРЅС‹Рµ С„Р°Р№Р»С‹.
+rem	%z7% РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СѓР¶Рµ РѕРїСЂРµРґРµР»РµРЅ.
 call :subr_pack_content_and_delete %prepfile% %logfile%
 echo OK.
 echo Saving user's config is OK. Continueing. >>%logfile%
 rem pause
 
 
-rem	и восстанавливаем первоначальное состояние.
-rem 	- восстановить изначальную конфигурацию аддонов и usercfg
+rem	Рё РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµРј РїРµСЂРІРѕРЅР°С‡Р°Р»СЊРЅРѕРµ СЃРѕСЃС‚РѕСЏРЅРёРµ.
+rem 	- РІРѕСЃСЃС‚Р°РЅРѕРІРёС‚СЊ РёР·РЅР°С‡Р°Р»СЊРЅСѓСЋ РєРѕРЅС„РёРіСѓСЂР°С†РёСЋ Р°РґРґРѕРЅРѕРІ Рё usercfg
 echo.|set/p yvar="Restoring initial configuration from %rollbackarchive%: "
 echo Restoring initial configuration from %rollbackarchive%. >>%logfile%
 rem	echo We Restoring initial state.
 rem	:subr_extract_content
-rem	распаковывает архив.
-rem	%z7% должен быть уже определен.
+rem	СЂР°СЃРїР°РєРѕРІС‹РІР°РµС‚ Р°СЂС…РёРІ.
+rem	%z7% РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СѓР¶Рµ РѕРїСЂРµРґРµР»РµРЅ.
 call :subr_extract_content %rollbackarchive% %logfile%
 echo OK
 echo Restoring state is OK from %rollbackarchive%. >>%logfile%
 
-rem	удаляем rollback архив 
+rem	СѓРґР°Р»СЏРµРј rollback Р°СЂС…РёРІ 
 del %rollbackarchive%
 echo Delete %rollbackarchive% = OK. >>%logfile%
 
@@ -439,15 +439,15 @@ exit /b
 
 
 
-rem	Примерный алгоритм работы:
-rem	- проверка "нормального" завершения работы предыдущего раза
-rem	  - если было "ненормально", то откатывается первоначальное состояние из файла отката.
-rem	- запомнить текущее состояние аддонов и usercfg
-rem	- из нужной копии нужного пользователя записать свой набор аддонов и usercfg
+rem	РџСЂРёРјРµСЂРЅС‹Р№ Р°Р»РіРѕСЂРёС‚Рј СЂР°Р±РѕС‚С‹:
+rem	- РїСЂРѕРІРµСЂРєР° "РЅРѕСЂРјР°Р»СЊРЅРѕРіРѕ" Р·Р°РІРµСЂС€РµРЅРёСЏ СЂР°Р±РѕС‚С‹ РїСЂРµРґС‹РґСѓС‰РµРіРѕ СЂР°Р·Р°
+rem	  - РµСЃР»Рё Р±С‹Р»Рѕ "РЅРµРЅРѕСЂРјР°Р»СЊРЅРѕ", С‚Рѕ РѕС‚РєР°С‚С‹РІР°РµС‚СЃСЏ РїРµСЂРІРѕРЅР°С‡Р°Р»СЊРЅРѕРµ СЃРѕСЃС‚РѕСЏРЅРёРµ РёР· С„Р°Р№Р»Р° РѕС‚РєР°С‚Р°.
+rem	- Р·Р°РїРѕРјРЅРёС‚СЊ С‚РµРєСѓС‰РµРµ СЃРѕСЃС‚РѕСЏРЅРёРµ Р°РґРґРѕРЅРѕРІ Рё usercfg
+rem	- РёР· РЅСѓР¶РЅРѕР№ РєРѕРїРёРё РЅСѓР¶РЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ Р·Р°РїРёСЃР°С‚СЊ СЃРІРѕР№ РЅР°Р±РѕСЂ Р°РґРґРѕРЅРѕРІ Рё usercfg
 rem	- start launcher.exe
-rem	- ожидание завершения работы игры и всех её процессов.
-rem	- имеющийся набор аддонов и usercfg записать в набор этого пользователя
-rem	- восстановить изначальную конфигурацию аддонов и usercfg
+rem	- РѕР¶РёРґР°РЅРёРµ Р·Р°РІРµСЂС€РµРЅРёСЏ СЂР°Р±РѕС‚С‹ РёРіСЂС‹ Рё РІСЃРµС… РµС‘ РїСЂРѕС†РµСЃСЃРѕРІ.
+rem	- РёРјРµСЋС‰РёР№СЃСЏ РЅР°Р±РѕСЂ Р°РґРґРѕРЅРѕРІ Рё usercfg Р·Р°РїРёСЃР°С‚СЊ РІ РЅР°Р±РѕСЂ СЌС‚РѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+rem	- РІРѕСЃСЃС‚Р°РЅРѕРІРёС‚СЊ РёР·РЅР°С‡Р°Р»СЊРЅСѓСЋ РєРѕРЅС„РёРіСѓСЂР°С†РёСЋ Р°РґРґРѕРЅРѕРІ Рё usercfg
 
 
 
@@ -456,26 +456,26 @@ rem	- восстановить изначальную конфигурацию аддонов и usercfg
 
 rem	=================================================================
 :subr_test_archive
-rem	Проверяет содержимое архива на правильность внутренностей.
-rem	%z7% должен быть уже определен.
-rem	param1	имя архива, куда упаковать
-rem	param2	имя лог-файла, куда дописывать.
+rem	РџСЂРѕРІРµСЂСЏРµС‚ СЃРѕРґРµСЂР¶РёРјРѕРµ Р°СЂС…РёРІР° РЅР° РїСЂР°РІРёР»СЊРЅРѕСЃС‚СЊ РІРЅСѓС‚СЂРµРЅРЅРѕСЃС‚РµР№.
+rem	%z7% РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СѓР¶Рµ РѕРїСЂРµРґРµР»РµРЅ.
+rem	param1	РёРјСЏ Р°СЂС…РёРІР°, РєСѓРґР° СѓРїР°РєРѕРІР°С‚СЊ
+rem	param2	РёРјСЏ Р»РѕРі-С„Р°Р№Р»Р°, РєСѓРґР° РґРѕРїРёСЃС‹РІР°С‚СЊ.
 if a%z7%o==ao (
-  rem	нет архиватора
+  rem	РЅРµС‚ Р°СЂС…РёРІР°С‚РѕСЂР°
   echo Error: subr_test_archive: No 7Zip standalone executable set.
   pause
   exit 
   rem	exit /b 1
 )
 if a%1o==ao (
-  rem	не указан архив
+  rem	РЅРµ СѓРєР°Р·Р°РЅ Р°СЂС…РёРІ
   echo Error: subr_test_archive: Archive filename not set.
   pause
   exit 
   rem	exit /b 2
 )
 if a%2o==ao (
-  rem	не указано имя лог-файла
+  rem	РЅРµ СѓРєР°Р·Р°РЅРѕ РёРјСЏ Р»РѕРі-С„Р°Р№Р»Р°
   echo Error: subr_test_archive: Log filename not set.
   pause
   exit 
@@ -484,7 +484,7 @@ if a%2o==ao (
 rem	 >>%2 2>&1
 %z7% t %1 >>%2
 if errorlevel 1 (
-  rem	что-то не срослось при работе архиватора
+  rem	С‡С‚Рѕ-С‚Рѕ РЅРµ СЃСЂРѕСЃР»РѕСЃСЊ РїСЂРё СЂР°Р±РѕС‚Рµ Р°СЂС…РёРІР°С‚РѕСЂР°
   echo Error: subr_pack_content: Archiving went wrong, read log file.
   pause
   exit 
@@ -500,26 +500,26 @@ exit /b 0
 
 rem	=================================================================
 :subr_pack_content
-rem	упаковывает содержимое каталогов с аддонами и файл
-rem	%z7% должен быть уже определен.
-rem	param1	имя архива, куда упаковать
-rem	param2	имя лог-файла, куда дописывать.
+rem	СѓРїР°РєРѕРІС‹РІР°РµС‚ СЃРѕРґРµСЂР¶РёРјРѕРµ РєР°С‚Р°Р»РѕРіРѕРІ СЃ Р°РґРґРѕРЅР°РјРё Рё С„Р°Р№Р»
+rem	%z7% РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СѓР¶Рµ РѕРїСЂРµРґРµР»РµРЅ.
+rem	param1	РёРјСЏ Р°СЂС…РёРІР°, РєСѓРґР° СѓРїР°РєРѕРІР°С‚СЊ
+rem	param2	РёРјСЏ Р»РѕРі-С„Р°Р№Р»Р°, РєСѓРґР° РґРѕРїРёСЃС‹РІР°С‚СЊ.
 if a%z7%o==ao (
-  rem	нет архиватора
+  rem	РЅРµС‚ Р°СЂС…РёРІР°С‚РѕСЂР°
   echo Error: subr_pack_content: No 7Zip standalone executable set.
   pause
   exit 
   rem	exit /b 1
 )
 if a%1o==ao (
-  rem	не указан архив
+  rem	РЅРµ СѓРєР°Р·Р°РЅ Р°СЂС…РёРІ
   echo Error: subr_pack_content: Archive filename not set.
   pause
   exit 
   rem	exit /b 2
 )
 if a%2o==ao (
-  rem	не указано имя лог-файла
+  rem	РЅРµ СѓРєР°Р·Р°РЅРѕ РёРјСЏ Р»РѕРі-С„Р°Р№Р»Р°
   echo Error: subr_pack_content: Log filename not set.
   pause
   exit 
@@ -528,7 +528,7 @@ if a%2o==ao (
 rem	%z7% a %1 data\Mods\Addons\ Personal\user.cfg -sdel >>%2 2>&1
 %z7% a %1 data\Mods\Addons\ Personal\user.cfg -sdel >>%2
 if errorlevel 1 (
-  rem	что-то не срослось при работе архиватора
+  rem	С‡С‚Рѕ-С‚Рѕ РЅРµ СЃСЂРѕСЃР»РѕСЃСЊ РїСЂРё СЂР°Р±РѕС‚Рµ Р°СЂС…РёРІР°С‚РѕСЂР°
   echo Error: subr_pack_content: Archiving went wrong, read log file.
   pause
   exit 
@@ -539,26 +539,26 @@ exit /b 0
 
 rem	=================================================================
 :subr_pack_content_and_delete
-rem	упаковывает содержимое каталогов с аддонами и файл, после этого удаляет исходные файлы.
-rem	%z7% должен быть уже определен.
-rem	param1	имя архива, куда упаковать
-rem	param2	имя лог-файла, куда дописывать.
+rem	СѓРїР°РєРѕРІС‹РІР°РµС‚ СЃРѕРґРµСЂР¶РёРјРѕРµ РєР°С‚Р°Р»РѕРіРѕРІ СЃ Р°РґРґРѕРЅР°РјРё Рё С„Р°Р№Р», РїРѕСЃР»Рµ СЌС‚РѕРіРѕ СѓРґР°Р»СЏРµС‚ РёСЃС…РѕРґРЅС‹Рµ С„Р°Р№Р»С‹.
+rem	%z7% РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СѓР¶Рµ РѕРїСЂРµРґРµР»РµРЅ.
+rem	param1	РёРјСЏ Р°СЂС…РёРІР°, РєСѓРґР° СѓРїР°РєРѕРІР°С‚СЊ
+rem	param2	РёРјСЏ Р»РѕРі-С„Р°Р№Р»Р°, РєСѓРґР° РґРѕРїРёСЃС‹РІР°С‚СЊ.
 if a%z7%o==ao (
-  rem	нет архиватора
+  rem	РЅРµС‚ Р°СЂС…РёРІР°С‚РѕСЂР°
   echo Error: subr_pack_content_and_delete: No 7Zip standalone executable set.
   pause
   exit 
   rem	exit /b 1
 )
 if a%1o==ao (
-  rem	не указан архив
+  rem	РЅРµ СѓРєР°Р·Р°РЅ Р°СЂС…РёРІ
   echo Error: subr_pack_content_and_delete: Archive filename not set.
   pause
   exit 
   rem	exit /b 2
 )
 if a%2o==ao (
-  rem	не указано имя лог-файла
+  rem	РЅРµ СѓРєР°Р·Р°РЅРѕ РёРјСЏ Р»РѕРі-С„Р°Р№Р»Р°
   echo Error: subr_pack_content_and_delete: Log filename not set.
   pause
   exit 
@@ -567,7 +567,7 @@ if a%2o==ao (
 rem	%z7% a %1 data\Mods\Addons\ Personal\user.cfg -sdel >>%2 2>&1
 %z7% a %1 data\Mods\Addons\ Personal\user.cfg -sdel >>%2
 if errorlevel 1 (
-  rem	что-то не срослось при работе архиватора
+  rem	С‡С‚Рѕ-С‚Рѕ РЅРµ СЃСЂРѕСЃР»РѕСЃСЊ РїСЂРё СЂР°Р±РѕС‚Рµ Р°СЂС…РёРІР°С‚РѕСЂР°
   echo Error: subr_pack_content_and_delete: Archiving went wrong, read log file.
   pause
   exit 
@@ -577,26 +577,26 @@ exit /b 0
 
 rem	=================================================================
 :subr_extract_content
-rem	распаковывает архив.
-rem	%z7% должен быть уже определен.
-rem	param1	имя архива, какой надо распаковать.
-rem	param2	имя лог-файла, куда дописывать.
+rem	СЂР°СЃРїР°РєРѕРІС‹РІР°РµС‚ Р°СЂС…РёРІ.
+rem	%z7% РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СѓР¶Рµ РѕРїСЂРµРґРµР»РµРЅ.
+rem	param1	РёРјСЏ Р°СЂС…РёРІР°, РєР°РєРѕР№ РЅР°РґРѕ СЂР°СЃРїР°РєРѕРІР°С‚СЊ.
+rem	param2	РёРјСЏ Р»РѕРі-С„Р°Р№Р»Р°, РєСѓРґР° РґРѕРїРёСЃС‹РІР°С‚СЊ.
 if a%z7%o==ao (
-  rem	нет архиватора
+  rem	РЅРµС‚ Р°СЂС…РёРІР°С‚РѕСЂР°
   echo Error: subr_extract_content: No 7Zip standalone executable set.
   pause
   exit 
   rem	exit /b 1
 )
 if a%1o==ao (
-  rem	не указан архив
+  rem	РЅРµ СѓРєР°Р·Р°РЅ Р°СЂС…РёРІ
   echo Error: subr_extract_content: Archive filename not set
   pause
   exit 
   rem	exit /b 2
 )
 if a%2o==ao (
-  rem	не указано имя лог-файла
+  rem	РЅРµ СѓРєР°Р·Р°РЅРѕ РёРјСЏ Р»РѕРі-С„Р°Р№Р»Р°
   echo Error: subr_extract_content: Log filename not set
   pause
   exit 
@@ -605,7 +605,7 @@ if a%2o==ao (
 rem	%z7% x %1 >>%2 2>&1
 %z7% x %1 >>%2 
 if errorlevel 1 (
-  rem	что-то не срослось при работе архиватора
+  rem	С‡С‚Рѕ-С‚Рѕ РЅРµ СЃСЂРѕСЃР»РѕСЃСЊ РїСЂРё СЂР°Р±РѕС‚Рµ Р°СЂС…РёРІР°С‚РѕСЂР°
   echo Error: subr_extract_content: Archiving went wrong, read log.
   pause
   exit 
@@ -615,28 +615,28 @@ exit /b 0
 
 
 
-rem	==реализованные подпрограммы типа====
+rem	==СЂРµР°Р»РёР·РѕРІР°РЅРЅС‹Рµ РїРѕРґРїСЂРѕРіСЂР°РјРјС‹ С‚РёРїР°====
 
 rem	:subr_test_archive
-rem	Проверяет содержимое архива на правильность внутренностей.
-rem	%z7% должен быть уже определен.
-rem	param1	имя архива, что тестировать
-rem	param2	имя лог-файла, куда дописывать.
+rem	РџСЂРѕРІРµСЂСЏРµС‚ СЃРѕРґРµСЂР¶РёРјРѕРµ Р°СЂС…РёРІР° РЅР° РїСЂР°РІРёР»СЊРЅРѕСЃС‚СЊ РІРЅСѓС‚СЂРµРЅРЅРѕСЃС‚РµР№.
+rem	%z7% РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СѓР¶Рµ РѕРїСЂРµРґРµР»РµРЅ.
+rem	param1	РёРјСЏ Р°СЂС…РёРІР°, С‡С‚Рѕ С‚РµСЃС‚РёСЂРѕРІР°С‚СЊ
+rem	param2	РёРјСЏ Р»РѕРі-С„Р°Р№Р»Р°, РєСѓРґР° РґРѕРїРёСЃС‹РІР°С‚СЊ.
 
 rem	:subr_pack_content
-rem	упаковывает содержимое каталогов с аддонами и файл
-rem	%z7% должен быть уже определен.
-rem	param1	имя архива, куда упаковать
-rem	param2	имя лог-файла, куда дописывать.
+rem	СѓРїР°РєРѕРІС‹РІР°РµС‚ СЃРѕРґРµСЂР¶РёРјРѕРµ РєР°С‚Р°Р»РѕРіРѕРІ СЃ Р°РґРґРѕРЅР°РјРё Рё С„Р°Р№Р»
+rem	%z7% РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СѓР¶Рµ РѕРїСЂРµРґРµР»РµРЅ.
+rem	param1	РёРјСЏ Р°СЂС…РёРІР°, РєСѓРґР° СѓРїР°РєРѕРІР°С‚СЊ
+rem	param2	РёРјСЏ Р»РѕРі-С„Р°Р№Р»Р°, РєСѓРґР° РґРѕРїРёСЃС‹РІР°С‚СЊ.
 
 rem	:subr_pack_content_and_delete
-rem	упаковывает содержимое каталогов с аддонами и файл, после этого удаляет исходные файлы.
-rem	%z7% должен быть уже определен.
-rem	param1	имя архива, куда упаковать
-rem	param2	имя лог-файла, куда дописывать.
+rem	СѓРїР°РєРѕРІС‹РІР°РµС‚ СЃРѕРґРµСЂР¶РёРјРѕРµ РєР°С‚Р°Р»РѕРіРѕРІ СЃ Р°РґРґРѕРЅР°РјРё Рё С„Р°Р№Р», РїРѕСЃР»Рµ СЌС‚РѕРіРѕ СѓРґР°Р»СЏРµС‚ РёСЃС…РѕРґРЅС‹Рµ С„Р°Р№Р»С‹.
+rem	%z7% РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СѓР¶Рµ РѕРїСЂРµРґРµР»РµРЅ.
+rem	param1	РёРјСЏ Р°СЂС…РёРІР°, РєСѓРґР° СѓРїР°РєРѕРІР°С‚СЊ
+rem	param2	РёРјСЏ Р»РѕРі-С„Р°Р№Р»Р°, РєСѓРґР° РґРѕРїРёСЃС‹РІР°С‚СЊ.
 
 rem	:subr_extract_content
-rem	распаковывает архив.
-rem	%z7% должен быть уже определен.
-rem	param1	имя архива, какой надо распаковать.
-rem	param2	имя лог-файла, куда дописывать.
+rem	СЂР°СЃРїР°РєРѕРІС‹РІР°РµС‚ Р°СЂС…РёРІ.
+rem	%z7% РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СѓР¶Рµ РѕРїСЂРµРґРµР»РµРЅ.
+rem	param1	РёРјСЏ Р°СЂС…РёРІР°, РєР°РєРѕР№ РЅР°РґРѕ СЂР°СЃРїР°РєРѕРІР°С‚СЊ.
+rem	param2	РёРјСЏ Р»РѕРі-С„Р°Р№Р»Р°, РєСѓРґР° РґРѕРїРёСЃС‹РІР°С‚СЊ.
