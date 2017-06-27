@@ -33,6 +33,7 @@ rem	201706** улучшения. Имя акка передается тепер
 rem	201706** improuvments. Acc's name passed with command line param.
 rem	20170619 еще улучшения.
 rem	20170619 Improuvments.
+rem	20170627 Bugfix in subr_pack_content
 setlocal
 set debug=1
 set debug=0
@@ -526,7 +527,7 @@ if a%2o==ao (
   rem	exit /b 3
 )
 rem	%z7% a %1 data\Mods\Addons\ Personal\user.cfg -sdel >>%2 2>&1
-%z7% a %1 data\Mods\Addons\ Personal\user.cfg -sdel >>%2
+%z7% a %1 data\Mods\Addons\ Personal\user.cfg >>%2
 if errorlevel 1 (
   rem	что-то не срослось при работе архиватора
   echo Error: subr_pack_content: Archiving went wrong, read log file.
