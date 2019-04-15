@@ -1,5 +1,8 @@
 @echo off
+rem	_____What is this?
 rem	Account switcher for MMORPG Allods Online.
+rem	version20190222_0
+rem	_____License:
 rem	This project is licensed under the terms of the MIT license.
 rem	MIT License
 rem	
@@ -24,9 +27,7 @@ rem	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN TH
 rem	SOFTWARE.
 rem	
 rem	
-rem	version 20170619
-rem	____________________History:
-rem	Вариант от 20170307
+rem	_____History:
 rem	20170307 К списку проверяемых процессов добавлены не только лаунчер и сама игра, но еще и обновляльщик и встроенный стукач-крешер.
 rem	20170307 now checked not only launcher: addit check game's main process, updater and built-in telemetry.
 rem	201706** улучшения. Имя акка передается теперь через параметры командной строки. Один батник для нескольких акков.
@@ -34,6 +35,9 @@ rem	201706** improuvments. Acc's name passed with command line param.
 rem	20170619 еще улучшения.
 rem	20170619 Improuvments.
 rem	20170627 Bugfix in subr_pack_content
+rem	20171126 Using 7zr (reduced version); после обновления 9.0 выяснилось, что конфиги аддонов пишутся в новую отдельную папочку (раньше её не было). Список файлов для архиватора теперь передается не напрямую, а через список_файлов.
+rem	20180910 проверяется наличие папки data\mods\configs и если ее нет (была очень старая версия игры), то она создается, чтобы скрипт при запаковке обратно не выпадал. В subr_pack_content_and_delete добавлено опциональное неотваливание по ошибкам.
+rem	20190222 В обновлении 10.0.00.60 появился варп. Это новое имя exe-шника для отслеживания. Ну и еще пара новых папок, но слава Айденусу у юзера там вроде ничего не сохраняется. Объем файлов игры вырос примерно в 2 раза, до примерно 20 гигов.
 setlocal
 set debug=1
 set debug=0
@@ -51,7 +55,7 @@ echo https://github.com/ololodo for more info.
 echo http://ololodo.blogspot.com for help and howtos.
 echo ------------------------------------------------------------
 
-rem	Проверяем наличие необходимых программ
+rem	Проверяем наличие необходимых программ и файлов
 
 set ech=data\Mods\_Addons_commonparts\echo_bike.exe
 if not exist %ech% (
@@ -79,9 +83,18 @@ if not exist %datexe% (
 )
 
 
-set z7=data\Mods\_Addons_commonparts\7za.exe
+rem	set z7=data\Mods\_Addons_commonparts\7za.exe
+set z7=data\Mods\_Addons_commonparts\7zr.exe
 if not exist %z7% (
-  echo Component 7Zip standalone module not found. Exitting.
+  echo Component 7Zip standalone reduced module not found. Exitting.
+  pause
+  exit /b 2
+)
+
+rem	files with account related datas (addons, configs)
+set flist=data\Mods\_Addons_commonparts\aofilelist
+if not exist %flist% (
+  echo Account related datas filelist not found. Exitting.
   pause
   exit /b 2
 )
@@ -153,7 +166,6 @@ if exist %rollbackarchive% (
   exit
   rem	совсем выход, окончательно.
 )
-
 
 rem	тут у нас все точно откачено, если было некорректное завершение работы.
 if %debug%==1 echo ===control point 1===. 
@@ -271,6 +283,13 @@ if %debug%==1 echo ===control point 7===
 echo ===control point 7===. >>%logfile%
 
 
+rem	20180910 workaround data\mods\configs folder
+If not EXIST data\mods\configs\ (
+  echo Creating data\mods\configs\ folder - from old version update.
+  md data\mods\configs\
+)
+
+
 
 rem	==============cut start=====================
 rem 	- start launcher.exe
@@ -279,7 +298,8 @@ echo.
 echo Starting Allods Online Launcher, please don't close this black window!
 echo Just play now!
 echo Starting launcher %lau%. >>%logfile%
-start "XD" /wait %lau%
+rem	start "XD" /wait %lau%
+start "XD" %lau%
 IF ERRORLEVEL 9059 (
  rem	Strange. O_o
  echo Error. Launcher not found
@@ -384,6 +404,20 @@ QPROCESS * | find /i "%cesstocheck%" >nul 2>&1 && (
      rem	set flagw2=1
      rem	%sleep% 5
 )
+
+rem	---смотрим наличие варпа (since 20190222)
+	set cesstocheck=AOwarp.exe
+QPROCESS * | find /i "%cesstocheck%" >nul 2>&1 && (
+    rem	echo process %cesstocheck% still running
+    echo.|set/p yvar="w"
+    set flagw2=2
+    %sleep% 15
+  ) || (
+     rem	echo process %cesstocheck% NOT running
+     rem	set flagw2=1
+     rem	%sleep% 5
+)
+
 
 if %flagw2%==2    goto :point2j
 if %debug%==1 echo ===control point 8b ===
@@ -527,7 +561,9 @@ if a%2o==ao (
   rem	exit /b 3
 )
 rem	%z7% a %1 data\Mods\Addons\ Personal\user.cfg -sdel >>%2 2>&1
-%z7% a %1 data\Mods\Addons\ Personal\user.cfg >>%2
+rem	%z7% a %1 data\Mods\Addons\ Personal\user.cfg >>%2
+%z7% a %1 @%flist% >>%2
+
 if errorlevel 1 (
   rem	что-то не срослось при работе архиватора
   echo Error: subr_pack_content: Archiving went wrong, read log file.
@@ -544,6 +580,7 @@ rem	упаковывает содержимое каталогов с аддон
 rem	%z7% должен быть уже определен.
 rem	param1	имя архива, куда упаковать
 rem	param2	имя лог-файла, куда дописывать.
+rem	param3	13=при ошибке надо трапаться совсем. Иначе=не надо
 if a%z7%o==ao (
   rem	нет архиватора
   echo Error: subr_pack_content_and_delete: No 7Zip standalone executable set.
@@ -566,12 +603,13 @@ if a%2o==ao (
   rem	exit /b 3
 )
 rem	%z7% a %1 data\Mods\Addons\ Personal\user.cfg -sdel >>%2 2>&1
-%z7% a %1 data\Mods\Addons\ Personal\user.cfg -sdel >>%2
+rem	%z7% a %1 data\Mods\Addons\ Personal\user.cfg -sdel >>%2
+%z7% a %1 @%flist% -sdel >>%2
 if errorlevel 1 (
   rem	что-то не срослось при работе архиватора
   echo Error: subr_pack_content_and_delete: Archiving went wrong, read log file.
   pause
-  exit 
+  if a%3o==a13o exit 
   rem	exit /b 4
 )
 exit /b 0
